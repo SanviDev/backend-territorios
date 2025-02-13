@@ -1,0 +1,19 @@
+app = "backend-territorios"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "3000"  # Cambiá el puerto si tu app usa otro
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
